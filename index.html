@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmoSense AI — Emotion Detection Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="background-glow"></div>
+      <div class="background-grid"></div>
+      <header class="nav-bar">
+        <div class="brand">
+            <div class="brand-mark">ES</div>
+            <div>
+              <p>EmoSense AI</p>
+              <span>Emotion-Aware Intelligence</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <span class="toggle-ball"></span>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero-section" id="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">AI Emotion Detection System</p>
+            <h1>Analyze emotions from text using Natural Language Processing and Machine Learning.</h1>
+            <p class="hero-blurb">Unlock emotional intelligence in your applications with fast, accurate, and private emotion prediction.</p>
+            <div class="hero-actions">
+              <a href="#detection" class="cta-button">Try Emotion Detection</a>
+              <span class="micro-note">Instantly classify Joy, Sadness, Anger, Fear, Surprise, and Love.</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="ai-card">
+              <div class="ai-card-header">
+                <span>Emotion AI</span>
+                <div class="status-chip">Live</div>
+              </div>
+              <div class="neural-network">
+                <div class="node node-1"></div>
+                <div class="node node-2"></div>
+                <div class="node node-3"></div>
+                <div class="connection connection-1"></div>
+                <div class="connection connection-2"></div>
+                <div class="connection connection-3"></div>
+                <div class="glow-ring"></div>
+              </div>
+              <div class="ai-card-footer">
+                <div>
+                  <p>Predicted: Joy 😊</p>
+                  <span>Confidence 94%</span>
+                </div>
+                <div class="mini-chart"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detection-section" id="detection">
+          <div class="section-header">
+            <span class="section-tag">Emotion Detection Interface</span>
+            <h2>Type your feelings and let the AI reveal the emotion.</h2>
+          </div>
+          <div class="detection-grid">
+            <div class="input-panel glass-card">
+              <label for="emotionInput">Enter text</label>
+              <textarea
+                id="emotionInput"
+                rows="6"
+                placeholder="Type your thoughts or feelings here..."
+              ></textarea>
+              <div class="actions-row">
+                <button id="analyzeBtn" class="action-btn">Analyze Emotion</button>
+                <div class="helper-note">Supports long and short text snippets.</div>
+              </div>
+              <div class="voice-row">
+                <button id="voiceBtn" class="secondary-btn">🎤 Voice Input</button>
+                <button id="clearBtn" class="secondary-btn">Reset</button>
+              </div>
+              <div class="assistant-card glass-card">
+                <div class="assistant-header">
+                  <span>Emotion-Aware AI Assistant</span>
+                  <span class="assistant-badge">Compassionate</span>
+                </div>
+                <p id="assistantMessage">Type how you feel and receive calm, helpful guidance from your AI companion.</p>
+              </div>
+            </div>
+
+            <div class="right-column">
+              <div class="result-panel glass-card" id="resultCard">
+                <div class="result-header">
+                  <div>
+                    <span>Predicted Emotion</span>
+                    <h3 id="predictedEmotion">--</h3>
+                  </div>
+                  <div class="emotion-icon" id="emotionIcon">🤖</div>
+                </div>
+                <div class="confidence-box">
+                  <span>Confidence</span>
+                  <div class="confidence-meter">
+                    <div class="confidence-fill" id="confidenceFill"></div>
+                  </div>
+                  <strong id="confidenceLabel">0%</strong>
+                </div>
+                <div class="probability-section">
+                  <span>Emotion probability</span>
+                  <div class="probability-bar">
+                    <span>Joy</span>
+                    <div class="bar"><div class="fill" id="joyFill"></div></div>
+                    <strong id="joyValue">0%</strong>
+                  </div>
+                  <div class="probability-bar">
+                    <span>Sadness</span>
+                    <div class="bar"><div class="fill" id="sadnessFill"></div></div>
+                    <strong id="sadnessValue">0%</strong>
+                  </div>
+                  <div class="probability-bar">
+                    <span>Anger</span>
+                    <div class="bar"><div class="fill" id="angerFill"></div></div>
+                    <strong id="angerValue">0%</strong>
+                  </div>
+                  <div class="probability-bar">
+                    <span>Fear</span>
+                    <div class="bar"><div class="fill" id="fearFill"></div></div>
+                    <strong id="fearValue">0%</strong>
+                  </div>
+                  <div class="probability-bar">
+                    <span>Surprise</span>
+                    <div class="bar"><div class="fill" id="surpriseFill"></div></div>
+                    <strong id="surpriseValue">0%</strong>
+                  </div>
+                  <div class="probability-bar">
+                    <span>Love</span>
+                    <div class="bar"><div class="fill" id="loveFill"></div></div>
+                    <strong id="loveValue">0%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="history-panel glass-card">
+                <div class="history-header">
+                  <span>Prediction History</span>
+                  <button id="clearHistory" class="clear-history">Clear</button>
+                </div>
+                <div class="history-list" id="historyList">
+                  <p class="history-empty">No entries yet. Analyze a message to build your emotion journal.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="visualization-section">
+          <div class="visualization-shell glass-card">
+            <div class="visualization-header">
+              <div>
+                <span class="section-tag">AI Result Visualization</span>
+                <h2>See your emotion prediction come to life.</h2>
+              </div>
+              <div class="visual-chip">Real-time insights</div>
+            </div>
+            <div class="visualization-grid">
+              <div class="circle-card">
+                <span>Predicted Emotion</span>
+                <div class="circle-ring">
+                  <div class="circle-progress" id="circleProgress"></div>
+                  <div class="circle-content" id="circleLabel">--</div>
+                </div>
+              </div>
+              <div class="metric-card">
+                <span>Confidence Score</span>
+                <strong id="scoreValue">0%</strong>
+                <p>AI confidence based on text patterns and training data.</p>
+              </div>
+              <div class="chart-card chart-large">
+                <span>Weekly emotion analytics</span>
+                <canvas id="weeklyChart"></canvas>
+              </div>
+              <div class="chart-card chart-large">
+                <span>Emotion share</span>
+                <canvas id="emotionPie"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features-section">
+          <div class="section-header">
+            <span class="section-tag">Features</span>
+            <h2>Built for fast, private, and accurate emotion analysis.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card glass-card">
+              <div class="feature-icon">🧠</div>
+              <h3>NLP Text Processing</h3>
+              <p>Advanced natural language models extract emotion from written words.</p>
+            </article>
+            <article class="feature-card glass-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Real-Time Prediction</h3>
+              <p>Quick analysis for instant user feedback and smooth interaction.</p>
+            </article>
+            <article class="feature-card glass-card">
+              <div class="feature-icon">🤖</div>
+              <h3>Machine Learning Powered</h3>
+              <p>Models trained to recognize subtle emotional cues in text.</p>
+            </article>
+            <article class="feature-card glass-card">
+              <div class="feature-icon">🚀</div>
+              <h3>Fast & Accurate</h3>
+              <p>Optimized pipelines deliver high accuracy and low latency.</p>
+            </article>
+            <article class="feature-card glass-card">
+              <div class="feature-icon">🧩</div>
+              <h3>User-Friendly Interface</h3>
+              <p>Clean dashboard with effortless interactions for every user.</p>
+            </article>
+            <article class="feature-card glass-card">
+              <div class="feature-icon">🔒</div>
+              <h3>Secure & Private</h3>
+              <p>Your text stays confidential while the prediction processes locally.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="workflow-section">
+          <div class="section-header">
+            <span class="section-tag">How It Works</span>
+            <h2>Emotion detection in four simple steps.</h2>
+          </div>
+          <div class="workflow-grid">
+            <div class="workflow-card glass-card">
+              <span class="step-number">01</span>
+              <h3>User enters text</h3>
+              <p>Type a message, thought, or feeling in the input panel.</p>
+            </div>
+            <div class="workflow-card glass-card">
+              <span class="step-number">02</span>
+              <h3>NLP preprocessing</h3>
+              <p>Text is cleaned, normalized, and prepared for analysis.</p>
+            </div>
+            <div class="workflow-card glass-card">
+              <span class="step-number">03</span>
+              <h3>TF-IDF vectorization</h3>
+              <p>Text is translated into numerical features that models understand.</p>
+            </div>
+            <div class="workflow-card glass-card">
+              <span class="step-number">04</span>
+              <h3>ML model prediction</h3>
+              <p>The trained model predicts the emotion and confidence score.</p>
+            </div>
+            <div class="workflow-card glass-card">
+              <span class="step-number">05</span>
+              <h3>Emotion displayed</h3>
+              <p>Results appear instantly with emotion, score, and probability bars.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="tech-section">
+          <div class="section-header">
+            <span class="section-tag">Tech Stack</span>
+            <h2>Designed for modern AI-driven applications.</h2>
+          </div>
+          <div class="tech-badges">
+            <span>Python</span>
+            <span>Scikit-learn</span>
+            <span>NLP</span>
+            <span>TF-IDF</span>
+            <span>Flask</span>
+            <span>Machine Learning</span>
+          </div>
+        </section>
+
+        <section class="samples-section">
+          <div class="section-header">
+            <span class="section-tag">Sample Emotion Examples</span>
+            <h2>Try these prompts for instant emotion previews.</h2>
+          </div>
+          <div class="sample-grid">
+            <button class="sample-card glass-card" data-sample="I got my dream job today!" data-emotion="Joy" data-emoji="😊">
+              <p>I got my dream job today!</p>
+              <span>Joy 😊</span>
+            </button>
+            <button class="sample-card glass-card" data-sample="I feel completely alone." data-emotion="Sadness" data-emoji="😔">
+              <p>I feel completely alone.</p>
+              <span>Sadness 😔</span>
+            </button>
+            <button class="sample-card glass-card" data-sample="Why would you do this?" data-emotion="Anger" data-emoji="😠">
+              <p>Why would you do this?</p>
+              <span>Anger 😠</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <p>Built with AI & Machine Learning</p>
+        </div>
+        <div class="footer-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
